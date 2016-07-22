@@ -8,6 +8,14 @@
   <name>facebook-java-ads-sdk</name>
   <url>https://developers.facebook.com/docs/marketing-api/sdks</url>
   <build>
+    <extensions>
+            <!-- Enabling the use of FTP -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.9</version>
+            </extension>
+        </extensions>
   <plugins>
     <plugin>  <!-- Create sources.jar -->
       <groupId>org.apache.maven.plugins</groupId>
@@ -30,4 +38,12 @@
       <version>2.5</version>
     </dependency>
   </dependencies>
+  <distributionManagement>
+        <!-- ftp compiled files to ftp://maven.knorex.com -->
+        <!-- Note that maven.knorex.com refers to the kickoff server in Knorex@SG -->
+        <repository>
+            <id>maven.knorex.com</id>
+            <url>ftp://maven.knorex.com</url>
+        </repository>
+    </distributionManagement>
 </project>
